@@ -1,0 +1,17 @@
+name = Blogs_content
+description = follow up the changes on the blogs content type
+core = 7.x
+package = Features
+dependencies[] = features
+dependencies[] = image
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[field_base][] = body
+features[field_base][] = field_bg_image_full
+features[field_instance][] = node-blogs-body
+features[field_instance][] = node-blogs-field_bg_image_full
+features[node][] = blogs
+features[views_view][] = blogs
+features[views_view][] = blogs_block
+features_exclude[dependencies][ctools] = ctools
