@@ -1,0 +1,121 @@
+body{
+	background:$bodycolor;
+}
+
+.l-page{
+	@include breakpoint($tab, true){
+		width:$tab;
+	}
+	@include breakpoint($desk, true){
+		width:$desk;
+	}
+	
+}
+
+.l-page{
+	margin: 0 auto;
+	padding:10px 20px 0px 20px;
+	@include clearfix;
+}
+
+.l-main{
+	margin: 10px auto;
+	background: white;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0), 0 6px 20px 0 rgba(0,0,0, 0.05);
+	
+}
+
+.l-branding img{
+	width:100%;
+}
+
+
+@include breakpoint($tab, true){
+	
+	.l-main,
+	.l-top,
+	.l-footer
+	.l-footer-gallary{
+
+
+		@include grid-span(12,1);
+	}
+
+	  .l-region--navigation{
+     	font-size: 13px;
+     	margin: 20px auto;
+     }
+
+     
+	.l-top{
+
+		
+		margin:5px 5px 5px 5px;
+		
+		.l-main--video{
+			@include grid-span(8,1);
+			margin:5px 5px 5px 5px;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0), 0 6px 20px 0 rgba(0,0,0, 0.05);
+		}
+
+		.l-main--audio{
+			@include grid-span(4,9);
+			padding: 5px 5px 5px 5px;
+			background:#00b300;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0), 0 6px 20px 0 rgba(0,0,0, 0.05);
+
+			.block--views-list-of-radio-program-block{
+				width:100%;
+			}
+		}
+		
+	}
+
+	.l-main{
+		.l-content{
+			@include grid-span(9,1);
+			padding:5px 5px 5px 5px;
+		}
+
+		.l-region--sidebar-second{
+			@include grid-span(3, 10);
+			padding:5px 5px 5px 5px;
+			height:100%;
+			
+		}
+	}
+
+	.l-sectional{
+		@include grid-span(12,1);
+		margin:15, auto;
+		float:left;
+		.l-region--sectional-one{
+			@include grid-span(4,1);
+			height:200px;
+			background:#80ff80;
+			border:1px;
+			padding: 5px 5px 5px 5px;
+			box-shadow: 0 1px 2px 0 rgba(0,0,0,0), 0 6px 20px 0 rgba(0,0,0, 0.05);
+		}
+
+		.l-region--sectional-two{
+			@include grid-span(4,5);
+			height:200px;
+			background:#80ff80;
+			border:1px;
+			padding: 5px 5px 5px 5px;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0), 0 6px 20px 0 rgba(0,0,0, 0.05);
+		}
+
+		.l-region--sectional-three{
+			@include grid-span(4,9);
+			height:200px;
+			background:#80ff80;
+			border:1px;
+			padding: 5px 5px 5px 5px;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0), 0 6px 20px 0 rgba(0,0,0, 0.05);
+		}
+	}
+
+	
+}

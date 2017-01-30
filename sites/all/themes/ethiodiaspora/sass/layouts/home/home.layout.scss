@@ -1,0 +1,237 @@
+// Import external libraries.
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+@import "toolkit";
+
+// Import variables, abstractions, base styles and components using globbing.
+//
+// Globbing will always import files alphabetically. Optimally, all your
+// components should be self-contained and explicit enough to not have any
+// contained styles leak into unrelated components: The import order should not
+// affect the result.
+//
+// If there are variables, functions or mixins that depend on each other and
+// therefore need to be imported in a specific order you can import them
+// directly. Variables-, function- or mixin providing partials should never
+// output any styles themselves: Importing them multiple times to resolve
+// dependencies shouldn't be a problem.
+
+@import "../../variables/**/*";
+@import "../../abstractions/**/*";
+@import "../../base/**/*";
+@import "../../components/**/*";
+
+
+// setting a common background color
+
+body{
+	background:$bodycolor;
+}
+
+//Setting a gutter and width for the main container l-page
+
+.l-page{
+
+	background:#cdf7cf;
+	
+	@include breakpoint($tab, true){
+		width:$tab;
+	}
+	
+	@include breakpoint($desk, true){
+		width:$desk;
+	}	
+
+	
+	//setting the margin and padding
+
+	margin: 0 auto;
+	padding:10px 0 0px 0;
+	@include clearfix;
+
+	
+
+	//adjusting the header image to 100% width
+
+	.l-branding img{
+		width:100%;
+	}
+
+
+	//creating the l-top to include video and audio
+
+	.l-top{
+
+		padding: 5px 0 5px 0;
+		.l-main--video{
+			
+			
+		}
+
+		.l-main--audio{
+
+			padding:20px;
+			//Creating some space between the audio files
+			.l-region--main-audio .views-row{
+				padding:10px;
+			}
+			
+		}
+	}
+
+	//setting the l-sectional which is a three pic board
+
+	.l-sectional{
+
+		padding: 5px 0 5px 0;
+
+		.l-region--sectional-one{
+			padding: 5px 5px 5px 5px;
+			height:200px;
+			background:$sectional-one;
+			box-shadow: 0 1px 2px 0 rgba(0,0,0,0);
+		}
+		.l-region--sectional-two{
+			padding: 5px 5px 5px 5px;
+			height:200px;
+			background:$sectional-two;
+		}
+		.l-region--sectional-three{
+			padding: 5px 5px 5px 5px;
+			height:200px;
+			background:$sectional-three;
+		}
+
+	}
+
+
+	//creating internal gutter for l-main
+	.l-main{
+		.l-content{
+			padding: 5px 10px 5px 5px;
+			text-align: justify;
+		}
+
+		.l-region--sidebar-second{
+			padding: 5px 10px 5px 5px;
+			text-align: justify;
+		}
+	}
+
+	//footer
+	.l-footer-gallary{
+		padding: 5px 5px 5px 5px;
+		background:blue;
+	}
+
+	.l-footer{
+
+		padding: 5px 5px 5px 5px;
+		background:$footer-color;
+		height: 150px;
+
+		.l-region--footer{
+			a, p{
+				color: white;
+
+			}
+			p{
+				//float: right;
+				//text-align: center;
+				
+   				bottom: 0;
+    			right: 100px;
+			}
+			
+		}
+	}
+}
+
+
+
+//Sass code to create our mobile css
+
+@include breakpoint($tab, true){
+	
+	//asigning outer container a maximum gutter size
+
+	.l-main,
+	.l-header,
+	.l-top,
+	.l-sectional,
+	.l-footer,
+	.l-footer-gallary,
+	.l-main--video,
+	.l-main--audio{
+
+		@include grid-span(12,1);
+
+
+	}
+
+
+}
+
+
+
+//desktop scss
+
+@include breakpoint($desk, true){
+
+	//creating the l-top to include video and audio
+
+	.l-top{
+
+		padding: 5px 0 5px 0;
+		.l-main--video{
+			@include grid-span(8,1);
+			
+		}
+
+		.l-main--audio{
+			@include grid-span(4,9);
+			
+		}
+	}
+
+
+	//setting the l-sectional which is a three pic board
+
+	.l-sectional{
+
+		padding: 5px 0 5px 0;
+
+		.l-region--sectional-one{
+			@include grid-span(4,1);
+			
+		}
+		.l-region--sectional-two{
+			@include grid-span(4,5);
+			
+		}
+		.l-region--sectional-three{
+			@include grid-span(4,9);
+		}
+
+	}
+	
+
+
+	//creating internal gutter for l-main
+	.l-main{
+		.l-content{
+			@include grid-span(8,1);
+		
+		}
+
+		.l-region--sidebar-second{
+			@include grid-span(4, 9);
+			
+			
+		}
+	}
+
+}
+
+

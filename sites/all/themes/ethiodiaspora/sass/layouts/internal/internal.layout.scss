@@ -1,0 +1,122 @@
+// Import external libraries.
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+@import "toolkit";
+
+// Import variables, abstractions, base styles and components using globbing.
+//
+// Globbing will always import files alphabetically. Optimally, all your
+// components should be self-contained and explicit enough to not have any
+// contained styles leak into unrelated components: The import order should not
+// affect the result.
+//
+// If there are variables, functions or mixins that depend on each other and
+// therefore need to be imported in a specific order you can import them
+// directly. Variables-, function- or mixin providing partials should never
+// output any styles themselves: Importing them multiple times to resolve
+// dependencies shouldn't be a problem.
+
+@import "../../variables/**/*";
+@import "../../abstractions/**/*";
+@import "../../base/**/*";
+@import "../../components/**/*";
+
+
+body{
+	background:$bodycolor;
+}
+
+.l-page{
+	@include breakpoint($tab, true){
+		width:$tab;
+	}
+	@include breakpoint($desk, true){
+		width:$desk;
+	}
+	
+}
+
+.l-page{
+	margin: 0 auto;
+	padding:10px 20px 0px 20px;
+	//add a clearfix in here
+}
+
+
+
+
+
+// this is a mobile first SASS code
+
+@include breakpoint($tab, true){
+	
+	.l-main,
+	.l-header,
+	.l-footer{
+		//Givinig fool width to the top containers
+		@include grid-span(12,1);
+	}
+
+
+	.l-main{
+
+		background: white;
+		padding: 15px 15px 15px 15px;
+
+
+		//content area Style
+
+		.l-content{
+			@include grid-span(9,1);
+
+			//Youtube video section would ocopay 80% of the content area
+			.views-field-field-youtube{
+
+				width:80%;
+			}
+			//Uploaded Video section would ocopay 80% of the content area
+			.views-field-field-video{
+
+				width:80%;
+			}
+
+			//create padding between the video listed
+			.view-tv-show-page-view .views-row{
+				padding: 15px 15px 100px 50px;
+			}
+
+			//create a gray line in between the videos to separte one another
+			.view-tv-show-page-view .views-row-even{
+				border-color: gray;
+				border-style: solid;
+    			border-width: 1px 0 1px 0;
+			}
+
+		}
+
+
+		//Second Side bar style
+
+		.l-region--sidebar-second{
+			@include grid-span(3, 10);
+			margin: 0 auto;
+			
+		}
+	}
+
+	//Footer style
+	.l-footer{
+		background:#999;
+		padding: 15px 15px 15px 15px;
+	}
+
+
+
+
+	//header img will fit 100% of screen width
+	
+	.l-branding img{
+		width:100%;
+	}
+}
